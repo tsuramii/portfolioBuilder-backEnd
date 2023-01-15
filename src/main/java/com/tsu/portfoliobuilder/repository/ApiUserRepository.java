@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.tsu.portfoliobuilder.model.ApiUser;
 
 @Repository
-public interface UserRepository extends JpaRepository<ApiUser, Long> {
+public interface ApiUserRepository extends JpaRepository<ApiUser, Long> {
     ApiUser findByUsername(String username);
 }
