@@ -1,13 +1,26 @@
 package com.tsu.portfoliobuilder.model;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 public class UserDetails {
+    @NotBlank
+    @Size(min = 2, max = 20)
     private String name;
+
+    @NotBlank
+    @Size(min = 2, max = 20)
     private String lastName;
+
+    @Size(max = 50)
     private String title;
+
+    @NotBlank
+    @Size(max = 600)
     private String description;
+
+    @NotBlank
     private String profilePhotoUrl;
 
     // Constructors
