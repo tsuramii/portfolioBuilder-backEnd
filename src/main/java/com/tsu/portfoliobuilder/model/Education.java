@@ -1,11 +1,7 @@
 package com.tsu.portfoliobuilder.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "Educations")
@@ -13,22 +9,29 @@ public class Education {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @NotBlank
+    @Size(max = 100)
     private String title;
 
     @NotBlank
+    @Size(max = 600)
     private String description;
 
+    @NotBlank
+    @Pattern(regexp = "^\\d{2}-\\d{2}-\\d{4}$", message = "Invalid date format, use dd-MM-yyyy")
     private String startDate;
+
+    @NotBlank
+    @Pattern(regexp = "^\\d{2}-\\d{2}-\\d{4}$", message = "Invalid date format, use dd-MM-yyyy")
     private String endDate;
 
     // Constructors
     public Education() {
     }
 
-    public Education(int id, String title, String description, String startDate, String endDate) {
+    public Education(Long id, String title, String description, String startDate, String endDate) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -37,11 +40,11 @@ public class Education {
     }
 
     // Getter and Setters
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
