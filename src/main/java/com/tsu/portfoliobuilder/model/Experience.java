@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 @Entity
+@Table(name = "Experiences")
 public class Experience {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

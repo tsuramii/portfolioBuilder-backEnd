@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "Users")
 public class ApiUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

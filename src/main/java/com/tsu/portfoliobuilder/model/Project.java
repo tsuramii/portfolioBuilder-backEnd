@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 @Entity
-public class Projects {
-
+@Table(name = "Projects")
+public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -22,10 +22,10 @@ public class Projects {
     private String urlImg;
 
     // Constructors
-    public Projects() {
+    public Project() {
     }
 
-    public Projects(int id, String title, String description, String urlImg) {
+    public Project(int id, String title, String description, String urlImg) {
         this.id = id;
         this.title = title;
         this.description = description;
