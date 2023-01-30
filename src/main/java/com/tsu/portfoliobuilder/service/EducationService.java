@@ -16,10 +16,6 @@ public class EducationService {
     @Autowired
     private EducationRepository educationRepository;
 
-    public EducationService(EducationRepository educationRepository) {
-        this.educationRepository = educationRepository;
-    }
-
     public Education saveEducation(Education education) {
         return educationRepository.save(education);
     }
