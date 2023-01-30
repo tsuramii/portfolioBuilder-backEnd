@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 @Entity
+@Table(name = "UserDetails")
 public class UserDetails {
     @NotBlank
     @Size(min = 2, max = 20)
