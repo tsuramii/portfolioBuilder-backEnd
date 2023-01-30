@@ -9,4 +9,6 @@ import com.tsu.portfoliobuilder.model.ApiUser;
 @Repository
 public interface ApiUserRepository extends JpaRepository<ApiUser, Long> {
     public Optional<ApiUser> findByUsername(String username);
+
+    public boolean existsByUsername(String username);
 }
