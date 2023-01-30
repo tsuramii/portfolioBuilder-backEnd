@@ -7,7 +7,7 @@ import com.tsu.portfoliobuilder.model.UserDetails;
 import com.tsu.portfoliobuilder.repository.UserDetailsRepository;
 
 public class UserDetailsService {
-    
+
     @Autowired
     private UserDetailsRepository userDetailsRepository;
 
@@ -27,4 +27,12 @@ public class UserDetailsService {
         userDetailsRepository.deleteById(id);
     }
 
+    public Boolean existsUserDetails(Long id) {
+        try {
+            userDetailsRepository.findById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
