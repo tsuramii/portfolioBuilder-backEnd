@@ -19,7 +19,7 @@ public class UserDetailsService {
         return userDetailsRepository.findById(id);
     }
 
-    public UserDetails save(UserDetails userDetails) {
+    public UserDetails saveUserDetails(UserDetails userDetails) {
         return userDetailsRepository.save(userDetails);
     }
 
