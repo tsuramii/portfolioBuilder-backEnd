@@ -6,6 +6,10 @@ import jakarta.validation.constraints.*;
 @Entity
 @Table(name = "UserDetails")
 public class UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @NotBlank
     @Size(min = 2, max = 20)
     private String name;
@@ -28,7 +32,10 @@ public class UserDetails {
     public UserDetails() {
     }
 
-    public UserDetails(String name, String lastName, String title, String description, String profilePhotoUrl) {
+    public UserDetails(Long id, @NotBlank @Size(min = 2, max = 20) String name,
+            @NotBlank @Size(min = 2, max = 20) String lastName, @Size(max = 50) String title,
+            @NotBlank @Size(max = 600) String description, @NotBlank String profilePhotoUrl) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.title = title;
@@ -37,6 +44,15 @@ public class UserDetails {
     }
 
     // Getter and Setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
