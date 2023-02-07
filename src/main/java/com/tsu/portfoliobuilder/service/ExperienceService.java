@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 import com.tsu.portfoliobuilder.model.Experience;
 import com.tsu.portfoliobuilder.repository.ExperienceRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class ExperienceService {
 
     @Autowired
