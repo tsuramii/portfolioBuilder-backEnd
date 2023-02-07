@@ -35,4 +35,18 @@ public class UserDetailsService {
             return false;
         }
     }
+
+    public UserDetails updateUserDetails(Long id, UserDetails updatedUserDetails) {
+        Optional<UserDetails> userDetails = findById(id);
+        if (userDetails.isPresent()) {
+            UserDetails user = userDetails.get();
+            user.setName(updatedUserDetails.getName());
+            user.setLastName(updatedUserDetails.getLastName());
+            user.setTitle(updatedUserDetails.getTitle());
+            user.setDescription(updatedUserDetails.getDescription());
+            user.setProfilePhotoUrl(updatedUserDetails.getProfilePhotoUrl());
+            return userDetailsRepository.save(user);
+        }
+        return null;
+    }
 }
