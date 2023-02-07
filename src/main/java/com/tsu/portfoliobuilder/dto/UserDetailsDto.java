@@ -6,7 +6,7 @@ public class UserDetailsDto {
     @NotBlank
     private String name;
     @NotBlank
-    private String surname;
+    private String lastName;
     @NotBlank
     private String title;
     @NotBlank
@@ -18,10 +18,10 @@ public class UserDetailsDto {
     public UserDetailsDto() {
     }
 
-    public UserDetailsDto(@NotBlank String name, @NotBlank String surname, @NotBlank String title,
+    public UserDetailsDto(@NotBlank String name, @NotBlank String lastName, @NotBlank String title,
             @NotBlank String description, @NotBlank String profilePhotoUrl) {
         this.name = name;
-        this.surname = surname;
+        this.lastName = lastName;
         this.title = title;
         this.description = description;
         this.profilePhotoUrl = profilePhotoUrl;
@@ -36,12 +36,12 @@ public class UserDetailsDto {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getTitle() {
