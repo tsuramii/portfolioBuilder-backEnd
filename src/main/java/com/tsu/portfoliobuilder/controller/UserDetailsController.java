@@ -17,29 +17,33 @@ import com.tsu.portfoliobuilder.model.UserDetails;
 import com.tsu.portfoliobuilder.service.UserDetailsService;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/users")
 @CrossOrigin(origins = "*")
 public class UserDetailsController {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @GetMapping
+    @GetMapping("/")
     public List<UserDetails> findAllUserDetails() {
         return userDetailsService.findAllUserDetails();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/details/{id}")
     public Optional<UserDetails> findById(@PathVariable Long id) {
         return userDetailsService.findById(id);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public UserDetails saveUserDetails(@RequestBody UserDetails userDetails) {
         return userDetailsService.saveUserDetails(userDetails);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable Long id) {
         userDetailsService.deleteById(id);
+    }
+
+    public UserDetails updateUserDetails(@PathVariable Long id, @RequestBody UserDetails userDetails) {
+        return userDetailsService.updateUserDetails(id, userDetails);
     }
 }
